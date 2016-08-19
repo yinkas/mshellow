@@ -1,0 +1,6 @@
+E:\test\abcdefg\TestWeb\TestWeb\bin\TestWeb.dll.config
+E:\test\abcdefg\TestWeb\TestWeb\bin\TestWeb.dll
+E:\test\abcdefg\TestWeb\TestWeb\bin\TestWeb.pdb
+E:\test\abcdefg\TestWeb\TestWeb\obj\Debug\TestWeb.csprojResolveAssemblyReference.cache
+E:\test\abcdefg\TestWeb\TestWeb\obj\Debug\TestWeb.dll
+E:\test\abcdefg\TestWeb\TestWeb\obj\Debug\TestWeb.pdb
