@@ -75,3 +75,4 @@ function rtx_browserInfoClass() {
 	this.w3c = this.nav6up;
 }
 var rtx_browserInfo = new rtx_browserInfoClass();
+ 
