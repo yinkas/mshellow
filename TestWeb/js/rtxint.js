@@ -29,7 +29,7 @@ if(rtx_codebase == null)
 }
 
 var rtx_nameControlID = "RTXNameControlID";
-var rtx_nameControlHTMLFormat = "<object classid='clsid:8F8086BE-0925-481D-B3C1-06BCB4121A5E' codebase='%CODEBASE%/RTXName.dll#version=2,0,1,0' id='" + rtx_nameControlID + "' onerror='rtx_nameControlOnError();' style='display:none;'></object>";
+var rtx_nameControlHTMLFormat = "<object classid='clsid:8F8086BE-0925-481D-B3C1-06BCB4121A5E' codebase='%CODEBASE%/RTXName.dll#version=1,0,0,9' id='" + rtx_nameControlID + "' onerror='rtx_nameControlOnError();' style='display:none;'></object>";
 var rtx_namePrefix = "rtxname";
 var rtx_nameIndex = 0;
 var rtx_nameControl = null;
@@ -57,13 +57,14 @@ var rtx_helpUrlDictionarys = null;
 var rtx_userRTXClientDictionarys = null;
 var rtx_getStatusUrlDictionarys = null;
 
-var RTX_USERTX = 1;
-var RTX_DEF_DEPLOYURL = ":8012/quickdeploy";
-var RTX_DEF_HELPURL = ":8012/help/start.htm";
-//var RTX_DEF_GETSTATUSURL = ":8012/getstatus.php";
-var RTX_DEF_GETSTATUSURL = ":8012/getimageex.cgi";
+var RTX_USERTX = 1;//默认自动使用RTXClient,但用户可以通过 noRTX,进行强制不使用RTX
+var RTX_DEF_DEPLOYURL = "/quickdeploy"; //快速部署页面
+var RTX_DEF_HELPURL = "/help/start.htm";//帮助页面
+var RTX_DEF_GETSTATUSURL = "/getstatus.php";//
 
 
+/////////////wwjs 2004.7.21
+//第一个 / 前表示host
 function rtx_getStatusHost(url)
 {
   var pos = 0;
@@ -122,7 +123,7 @@ function rtx_addUrl(src, id)
 		
 	if(typeof(src.noRTX) != "undefined")
 	{
-		rtx_userRTXClientDictionary[id] = 0;
+		rtx_userRTXClientDictionary[id] = 0;//现在强制不使用RTX。
 	}
 	else
 	{
@@ -177,7 +178,7 @@ function rtx_addGroupUrl(src, id)
 		
 	if(typeof(src.noRTX) != "undefined")
 	{
-		rtx_userRTXClientDictionarys[id] = 0;
+		rtx_userRTXClientDictionarys[id] = 0;//现在强制不使用RTX。
 	}
 	else
 	{
@@ -667,12 +668,9 @@ function rtx_OnStatusChange(nick, state, file, rtxNum)
 
 function rtx_winOnload()
 {
-    if(rtx_oldWinOnload != null)
-    {
-	    if(typeof(rtx_oldWinOnload) == "function" || typeof(rtx_oldWinOnload) == "object")
-	    {
-		    rtx_oldWinOnload();
-	    }
+	if(typeof(rtx_oldWinOnload) == "function")
+	{
+		rtx_oldWinOnload();
 	}
 	
 	rtx_createNameControl();
@@ -987,4 +985,4 @@ function rtx_updateImage(id, img)
 	}
 }
 
-		
+		 
